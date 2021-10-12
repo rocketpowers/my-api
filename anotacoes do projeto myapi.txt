@@ -1,0 +1,10 @@
+-consolidando o entendimento da empregacao da anotacao notempty e length
+
+-configuracoes de acesso ao h2 consolidados 
+
+-remediacao de conflitos com lombok
+
+-
+
+
+
