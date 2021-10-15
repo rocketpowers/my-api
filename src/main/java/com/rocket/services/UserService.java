@@ -1,7 +1,5 @@
 package com.rocket.services;
 
-
-
 import java.util.List;
 import java.util.Optional;
 
@@ -20,22 +18,19 @@ public class UserService {
 	@Autowired
 	private UserRepository repository;
 
-	public User findById(Integer id) throws ObjectNotFoundException  {
+	public User findById(Integer id) {
 		Optional<User> obj = repository.findById(id);
-		return obj.orElseThrow(() -> new ObjectNotFoundException(
-				"Objeto não encontrado! Id: " + id + ", Tipo: " + User.class.getName()));
+		return obj.orElseThrow(
+				() -> new ObjectNotFoundException("user not found Id: " + id + ", Tipo: " + User.class.getName()));
 	}
-	
 
 	public List<User> findAll() {
 		return repository.findAll();
-		
-		
+
 	}
 
-
 	public User update(Integer id, User obj) {
-		
+
 		User newObj = findById(id);
 		newObj.setName(obj.getName());
 		newObj.setLogin(obj.getLogin());
@@ -43,6 +38,10 @@ public class UserService {
 		return repository.save(newObj);
 	}
 
-}
-	
+	public User create(User obj) {
+		obj.setId(null);
+		return repository.save(obj);
 
+	}
+
+}

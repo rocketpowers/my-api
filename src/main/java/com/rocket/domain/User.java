@@ -11,6 +11,7 @@ import javax.validation.constraints.NotEmpty;
 
 import org.hibernate.validator.constraints.Length;
 
+
 @Entity
 public class User implements Serializable {
 
@@ -22,14 +23,16 @@ public class User implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
-	@NotEmpty(message = "obrigatorio o preenchimento do campo ")
-	@Length(min = 3, max = 80, message = "3 a 80")
+	@NotEmpty(message = "obrigatorio o preenchimento do campo")
+	//@Length(min = 3, max = 80, message = "3 a 80")
 	private String name;
 
-	@NotEmpty(message = "obrigatorio o preenchimento do campo ")
+	@NotEmpty(message = "obrigatorio o preenchimento do campo")
+	//@Length(min = 3, max = 80, message = "3 a 80")
 	private String login;
 
-	@NotEmpty(message = "obrigatorio o preenchimento do campo ")
+	@NotEmpty(message = "obrigatorio o preenchimento do campo")
+	//@Length(min = 3, max = 80, message = "3 a 80")
 	private String senha;
 
 	public User() {
