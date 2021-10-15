@@ -33,6 +33,16 @@ public class UserService {
 		
 	}
 
+
+	public User update(Integer id, User obj) {
+		
+		User newObj = findById(id);
+		newObj.setName(obj.getName());
+		newObj.setLogin(obj.getLogin());
+		newObj.setSenha(obj.getSenha());
+		return repository.save(newObj);
+	}
+
 }
 	
 
