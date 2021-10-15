@@ -1,5 +1,7 @@
 package com.rocket.resources;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,6 +26,12 @@ public class UserResource {
 	public ResponseEntity<User> findById(@PathVariable Integer id) throws ObjectNotFoundException  {
 		User obj = this.service.findById(id);
 		return ResponseEntity.ok().body(obj);
+	}
+	
+	@GetMapping
+	public ResponseEntity<List<User>> findAll(){
+		List <User> list = service.findAll();
+		return ResponseEntity.ok().body(list);
 	}
 
 	
